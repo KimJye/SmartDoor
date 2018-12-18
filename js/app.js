@@ -17,7 +17,7 @@ var path = require("path");
 
 // 버전 얻기
 global.version = JSON.parse(fs.readFileSync("package.json", "utf8")).version;
-console.log("Starting MagicMirror: v" + global.version);
+console.log("Starting SmartDoor: v" + global.version);
 
 // root path 전역
 global.root_path = path.resolve(__dirname + "/../");
@@ -34,8 +34,8 @@ if (process.env.MM_PORT) {
 process.on("uncaughtException", function (err) {
 	console.log("Whoops! There was an uncaught exception...");
 	console.error(err);
-	console.log("MagicMirror will not quit, but it might be a good idea to check why this happened. Maybe no internet connection?");
-	console.log("If you think this really is an issue, please open an issue on GitHub: https://github.com/MichMich/MagicMirror/issues");
+	console.log("SmartDoor will not quit, but it might be a good idea to check why this happened. Maybe no internet connection?");
+	console.log("If you think this really is an issue, please open an issue on GitHub: https://github.com/MichMich/SmartDoor/issues");
 });
 
 /* App
@@ -123,7 +123,7 @@ var App = function() {
 			var m = new Module();
 
 			if (m.requiresVersion) {
-				console.log("Check MagicMirror version for node helper '" + moduleName + "' - Minimum version:  " + m.requiresVersion + " - Current version: " + global.version);
+				console.log("Check SmartDoor version for node helper '" + moduleName + "' - Minimum version:  " + m.requiresVersion + " - Current version: " + global.version);
 				if (cmpVersions(global.version, m.requiresVersion) >= 0) {
 					console.log("Version is ok!");
 				} else {
